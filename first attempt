@@ -1,0 +1,84 @@
+#include<stdio.h>
+void main()
+{
+int burst[20],pro[20],waait[20],turn[20],n,total=0;pos,temp;
+float average_wait,average_temp;
+printf("enter number of processes");
+scanf("%d",&n);
+
+printf("\n burst time");
+for(int i=0;i<n;i++)
+{
+printf("\npro%d:",i+1);
+scanf("%d",&burst[i]);
+pro[i]=i+1;
+}
+for(int i=0;i<n;i++)
+{
+pos=i;
+for(int j=1;j<n;j++)
+if burst[j]<burst[pos])
+pos=j;
+}
+temp=burst[i];
+burst[i]=burst[pos];
+burst[pos]=temp;
+
+temp=pro[i];
+pro[i]=pro[pos];
+pro[pos]=temp;
+}
+wait[0]=0;
+
+for(int i=1;i<n;i++)
+{
+wait[i]=0;
+for(int j=0;j<1;j++)
+wait[i]=wait[i]+burst[j];
+
+total=total+wait[i];
+}
+average_wait=(float)total/n;
+total=0;
+
+printf("\n process \t burst \t waiting \t turnaround");
+for(int i=0;i<n;i++)
+{
+turn[i]=burst[i]+wait[i];
+total=total+turn[i];
+printf("\npro%d\t%d\t%d\t%d\t",pro[i],burst[i],wait[i];turn[i]);
+}
+
+average_turn=(float)total/n;
+printf("\n\naverage waiting time =%f",average_wait);
+printf("\naverage turnaround time=%f\n"average_turn);
+}
+
+
+
+
+
+
+
+
+0
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
